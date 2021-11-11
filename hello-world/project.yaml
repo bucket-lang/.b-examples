@@ -1,0 +1,27 @@
+# Define the name of the project
+name: Hello world
+
+# Define the entrypoint file of your project. Compilation will start from this file.
+entrypoint: index.b
+
+# Choose output directory (or files) | Default is './build/'
+output: build/
+
+# Build configuration.
+build:
+  type: exec # Can be exec or shared | Default is 'exec'
+  # Bucket allow to build your software for other arch or system. 
+  # It can be overrided by cli with `bucket build -prod -os windows -arch arm64`
+  # To change the following, you need to install libs of the targeted system on your system.
+  arch: x64 # Default is the current arch of the system
+  os: linux # Default is the current OS
+  exec:
+    before: echo 'Can do something'
+    after: cp build/hello-world .
+
+# List of all dependencies used by your project, 
+# Adding it here will download it automatically by running `bucket build .` or `bucket deps update .`
+# You can add 
+dependencies: []
+# Same for the dev dependencies that won't be includes on `bucket build -prod .`
+dev-dependencies: []
