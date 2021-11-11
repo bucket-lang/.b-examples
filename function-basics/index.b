@@ -11,6 +11,14 @@ println(b) // 3
 c, _ = some_numbers() 
 println(c) // 2
 
+/**
+ * return : A tuple of int that contain 2 and 3 as constant
+ * Will always return constant 2 and 3 on every call. 
+ * Example of use : 
+   ```
+   int a, int b = some_numbers() // Will return 2, 3
+   ```
+ **/
 fn some_numbers() : int, int {
   return 2, 3
 }
